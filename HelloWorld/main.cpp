@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>  // #include is a preprocessor directive
 
 int main() {
   std::cout << "Hello, World!" << std::endl;
