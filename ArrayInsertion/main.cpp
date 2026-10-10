@@ -1,28 +1,29 @@
 #include <iostream>
-using namespace std;
 
 int main() {
   const int CAPACITY = 50;
   int numbers[CAPACITY];
   int n;
 
-  cout << "Enter number of elements to store (up to 50): ";
-  cin >> n;
+  std::cout << "Enter number of elements to store (up to 50): ";
+  std::cin >> n;
 
-  cout << "Enter " << n << " integer values:\n";
+  std::cout << "Enter " << n << " integer values:\n";
   for (int i = 0; i < n; i++) {
-    cin >> numbers[i];
+    std::cin >> numbers[i];
   }
 
   // Insertion: Insert a new value at a specified position
   int newValue, position;
-  cout << "Enter a new integer value to insert: ";
-  cin >> newValue;
-  cout << "Enter the position (0 to " << n << ") to insert the new value: ";
-  cin >> position;
+  std::cout << "Enter a new integer value to insert: ";
+  std::cin >> newValue;
+  std::cout << "Enter the position (0 to " << n
+            << ") to insert the new value: ";
+  std::cin >> position;
 
   if (position < 0 || position > n || n >= CAPACITY) {
-    cout << "Invalid position or array is full. Cannot insert." << endl;
+    std::cout << "Invalid position or array is full. Cannot insert."
+              << std::endl;
     return 1;
   }
 
@@ -36,11 +37,11 @@ int main() {
   n++;  // Increase the count of elements
 
   // Display the updated array
-  cout << "Updated array after insertion:\n";
+  std::cout << "Updated array after insertion:\n";
   for (int i = 0; i < n; i++) {
-    cout << numbers[i] << " ";
+    std::cout << numbers[i] << " ";
   }
-  cout << endl;
+  std::cout << std::endl;
 
   return 0;
 }
