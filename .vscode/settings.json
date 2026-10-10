@@ -1,18 +1,55 @@
 {
+  // ---------------------------------------------------------------------------
+  // <your "VS Code" folder>/.vscode/settings.json
+  // Applies to every project folder in this workspace.
+  // ---------------------------------------------------------------------------
+  // Fallbacks used when c_cpp_properties.json doesn't apply.
+  // learncpp 0.12 specifically asks you to set cppStandard so IntelliSense
+  // matches your compile flags.
+  "C_Cpp.default.compilerPath": "/usr/bin/clang++",
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.default.cStandard": "c17",
+  "C_Cpp.default.intelliSenseMode": "macos-clang-x64",
+  "C_Cpp.errorSquiggles": "enabled",
+  // Code formatting: Google C++ Style Guide, via the clang-format that ships
+  // with the C/C++ extension (nothing extra to install). The Google preset
+  // means 2-space indents, an 80-column limit, opening braces on the same
+  // line, and #includes sorted into groups: the file's own header first, then
+  // <...> headers, then "..." headers. Layout only -- naming rules such as
+  // kConstantName or FunctionName() aren't checked.
+  //
+  // To change one rule but keep the rest, replace "Google" with e.g.
+  //   "{ BasedOnStyle: Google, IndentWidth: 4 }"
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_style": "Google",
+  // Treat bare .h files as C++ rather than C.
+  "files.associations": {
+    "*.h": "cpp"
+  },
+  // Keep compiled binaries out of search results and the file tree.
+  "search.exclude": {
+    "**/bin": true
+  },
+  "files.exclude": {
+    "**/.DS_Store": true
+  },
+  "files.watcherExclude": {
+    "**/bin/**": true
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    // Apply the style every time you save. Set to false to format only when
+    // you ask (Shift+Option+F).
     "editor.formatOnSave": true,
-    "[cpp]": {
-        "editor.defaultFormatter": "xaver.clang-format"
-    },
-    "clang-format.executable": "/usr/local/bin/clang-format",
-    "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
-    "C_Cpp.clang_format_fallbackStyle": "Google",
-    "C_Cpp.default.cppStandard": "c++20",
-    "cmake.configureOnOpen": true,
-    "cmake.buildDirectory": "${workspaceFolder}/build",
-    "files.associations": {
-        "*.cpp": "cpp",
-        "*.h": "cpp",
-        "*.hpp": "cpp"
-    },
-    "C_Cpp.default.compilerPath": "/usr/bin/clang++"
+    // Indent by 2 while typing so the editor agrees with the formatter.
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    // Guide line at Google style's 80-column limit.
+    "editor.rulers": [
+      80
+    ]
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true
 }

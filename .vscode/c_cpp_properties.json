@@ -1,19 +1,40 @@
 {
-    "configurations": [
-        {
-            "name": "Mac",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "defines": [],
-            "macFrameworkPath": [
-                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
-            ],
-            "compilerPath": "/usr/bin/clang++",
-            "cStandard": "c17",
-            "cppStandard": "c++20",
-            "intelliSenseMode": "macos-clang-x64"
-        }
-    ],
-    "version": 4
+  // ---------------------------------------------------------------------------
+  // <your "VS Code" folder>/.vscode/c_cpp_properties.json
+  //
+  // IntelliSense settings. These do NOT affect compilation (tasks.json does) --
+  // they only tell the C/C++ extension how to read your code. Keep the standard
+  // and warning flags here in sync with tasks.json or the squiggles will lie.
+  // ---------------------------------------------------------------------------
+  "version": 4,
+  "configurations": [
+    {
+      "name": "Mac",
+      "compilerPath": "/usr/bin/clang++",
+      "compilerArgs": [
+        "-pedantic-errors",
+        "-Wall",
+        "-Weffc++",
+        "-Wextra",
+        "-Wconversion",
+        "-Wsign-conversion"
+      ],
+      // "/**" = search every subfolder, so headers in war-cpp/ (and any other
+      // project folder) are found no matter which file is open.
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": [],
+      "macFrameworkPath": [
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+      ],
+      "cStandard": "c17",
+      "cppStandard": "c++20",
+      // x64 because your MacBook Pro is Intel. On Apple Silicon this would be
+      // macos-clang-arm64.
+      "intelliSenseMode": "macos-clang-x64",
+      "browse": {
+        "path": ["${workspaceFolder}/**"],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ]
 }

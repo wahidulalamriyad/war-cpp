@@ -1,18 +1,43 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Debug CMake Target",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${command:cmake.launchTargetPath}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "CMake: Build"
-        }
-    ]
+  // ---------------------------------------------------------------------------
+  // <your "VS Code" folder>/.vscode/launch.json
+  //
+  // Debugs whichever project you are currently in: with war-cpp/main.cpp open,
+  // F5 builds war-cpp and launches war-cpp/bin/debug/war-cpp under lldb.
+  // ---------------------------------------------------------------------------
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C++ Debugger",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/bin/debug/${fileDirnameBasename}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      // false = program I/O goes to the Debug Console. Keyboard input there is
+      // unreliable on macOS, so for programs that read std::cin use the
+      // "C/C++: build & run (debug)" task instead (Terminal > Run Task...).
+      "externalConsole": false,
+      "MIMode": "lldb",
+      // Must match the task label in tasks.json exactly.
+      "preLaunchTask": "C/C++: build (debug)"
+    }
+    // ---- Optional fallback ---------------------------------------------------
+    // If cppdbg ever hangs or refuses to hit breakpoints (it can, depending on
+    // your Xcode version), install the "CodeLLDB" extension (vadimcn.vscode-lldb)
+    // and uncomment this block. It talks to lldb directly.
+    //
+    // ,{
+    //   "name": "Debug current project (CodeLLDB)",
+    //   "type": "lldb",
+    //   "request": "launch",
+    //   "program": "${fileDirname}/bin/debug/${fileDirnameBasename}",
+    //   "args": [],
+    //   "cwd": "${fileDirname}",
+    //   "terminal": "integrated",
+    //   "preLaunchTask": "C/C++: build (debug)"
+    // }
+  ]
 }

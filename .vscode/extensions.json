@@ -1,0 +1,8 @@
+{
+  // <your "VS Code" folder>/.vscode/extensions.json
+  // VS Code will offer to install these when the folder is opened.
+  "recommendations": [
+    "ms-vscode.cpptools" // required: IntelliSense + the cppdbg debugger
+    // "vadimcn.vscode-lldb"  // optional fallback debugger, see launch.json
+  ]
+}
